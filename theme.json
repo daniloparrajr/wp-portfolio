@@ -6,6 +6,59 @@
 			"wideSize": "1680px"
 		},
 		"spacing": {
+			"defaultSpacingSizes": false,
+			"spacingSizes": [
+				{
+					"name": "Tiny",
+					"size": "10px",
+					"slug": "tiny"
+				},
+				{
+					"name": "X-Small",
+					"size": "18px",
+					"slug": "xsmall"
+				},
+				{
+					"name": "Small",
+					"size": "24px",
+					"slug": "small"
+				},
+				{
+					"name": "Medium",
+					"size": "30px",
+					"slug": "medium"
+				},
+				{
+					"name": "Large",
+					"size": "40px",
+					"slug": "large"
+				},
+				{
+					"name": "2X-Large",
+					"size": "60px",
+					"slug": "2xlarge"
+				},
+				{
+					"name": "3X-Large",
+					"size": "80px",
+					"slug": "3xlarge"
+				},
+				{
+					"name": "4X-Large",
+					"size": "120px",
+					"slug": "4xlarge"
+				},
+				{
+					"name": "5X-Large",
+					"size": "145px",
+					"slug": "5xlarge"
+				},
+				{
+					"name": "6X-Large",
+					"size": "200px",
+					"slug": "6xlarge"
+				}
+			],
 			"units": [
 				"%",
 				"px",
@@ -162,13 +215,13 @@
 		"elements": {
 			"h1": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--x-large)",
+					"fontSize": "var:preset|font-family|thunder",
 					"letterSpacing": "0px"
 				}
 			},
 			"heading": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--thunder)",
+					"fontFamily": "var:preset|font-family|inter",
 					"letterSpacing": "1px"
 				}
 			}
@@ -176,19 +229,19 @@
 		"blocks": {
 			"core/site-title": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--inter)",
-					"fontSize": "var(--wp--preset--font-size--regular)"
+					"fontFamily": "var:preset|font-family|inter",
+					"fontSize": "var:preset|font-size|regular"
 				}
 			},
 			"core/site-tagline": {
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--small)",
+					"fontSize": "var:preset|font-size|small",
 					"textTransform": "uppercase"
 				}
 			}
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--inter)"
+			"fontFamily": "var:preset|font-family|inter"
 		}
 	},
 	"templateParts": [
