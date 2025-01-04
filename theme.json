@@ -1,6 +1,58 @@
 {
 	"settings": {
 		"appearanceTools": true,
+		"color": {
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"palette": [
+				{
+					"color": "#0C0C0E",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#242429",
+					"name": "Base 2",
+					"slug": "base-2"
+				},
+				{
+					"color": "#54545F",
+					"name": "Base 3",
+					"slug": "base-3"
+				},
+				{
+					"color": "#ffffff",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#E0DFDC",
+					"name": "Contrast 2",
+					"slug": "contrast-2"
+				},
+				{
+					"color": "#F4F5F0",
+					"name": "Contrast 3",
+					"slug": "contrast-3"
+				},
+				{
+					"color": "#F1E9DB",
+					"name": "Accent",
+					"slug": "accent"
+				},
+				{
+					"color": "#9D9D9D",
+					"name": "Gray",
+					"slug": "gray"
+				},
+				{
+					"color": "#CCCCCC",
+					"name": "Gray 2",
+					"slug": "gray-2"
+				}
+			]
+		},
 		"layout": {
 			"contentSize": "1105px",
 			"wideSize": "1680px"
@@ -16,7 +68,7 @@
 				{
 					"name": "X-Small",
 					"size": "18px",
-					"slug": "xsmall"
+					"slug": "x-small"
 				},
 				{
 					"name": "Small",
@@ -36,7 +88,7 @@
 				{
 					"name": "2X-Large",
 					"size": "60px",
-					"slug": "2xlarge"
+					"slug": "2x-large"
 				},
 				{
 					"name": "3X-Large",
@@ -46,7 +98,7 @@
 				{
 					"name": "4X-Large",
 					"size": "120px",
-					"slug": "4xlarge"
+					"slug": "4x-large"
 				},
 				{
 					"name": "5X-Large",
@@ -56,7 +108,7 @@
 				{
 					"name": "6X-Large",
 					"size": "200px",
-					"slug": "6xlarge"
+					"slug": "6x-large"
 				}
 			],
 			"units": [
