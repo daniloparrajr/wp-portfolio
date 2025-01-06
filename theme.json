@@ -2,10 +2,16 @@
 	"settings": {
 		"appearanceTools": true,
 		"color": {
+			"custom": true,
 			"defaultDuotone": false,
 			"defaultGradients": false,
 			"defaultPalette": false,
 			"palette": [
+				{
+					"color": "rgb(255,255,255)",
+					"name": "White",
+					"slug": "white"
+				},
 				{
 					"color": "#0C0C0E",
 					"name": "Base",
@@ -22,19 +28,14 @@
 					"slug": "base-3"
 				},
 				{
-					"color": "#ffffff",
+					"color": "#E0DFDC",
 					"name": "Contrast",
 					"slug": "contrast"
 				},
 				{
-					"color": "#E0DFDC",
+					"color": "#F4F5F0",
 					"name": "Contrast 2",
 					"slug": "contrast-2"
-				},
-				{
-					"color": "#F4F5F0",
-					"name": "Contrast 3",
-					"slug": "contrast-3"
 				},
 				{
 					"color": "#F1E9DB",
@@ -43,13 +44,18 @@
 				},
 				{
 					"color": "#9D9D9D",
-					"name": "Gray",
-					"slug": "gray"
+					"name": "Light Shade",
+					"slug": "light-shade"
 				},
 				{
 					"color": "#CCCCCC",
-					"name": "Gray 2",
-					"slug": "gray-2"
+					"name": "Light Shade 2",
+					"slug": "light-shade-2"
+				},
+				{
+					"color": "rgba(217, 217, 217, 0.2)",
+					"name": "Light Shade Transparent",
+					"slug": "light-shade-transparent"
 				}
 			]
 		},
@@ -62,53 +68,58 @@
 			"spacingSizes": [
 				{
 					"name": "Tiny",
+					"size": "5px",
+					"slug": "5"
+				},
+				{
+					"name": "XX-Small",
 					"size": "10px",
-					"slug": "tiny"
+					"slug": "10"
 				},
 				{
 					"name": "X-Small",
 					"size": "18px",
-					"slug": "x-small"
+					"slug": "20"
 				},
 				{
 					"name": "Small",
 					"size": "24px",
-					"slug": "small"
+					"slug": "30"
 				},
 				{
 					"name": "Medium",
 					"size": "30px",
-					"slug": "medium"
+					"slug": "40"
 				},
 				{
 					"name": "Large",
 					"size": "40px",
-					"slug": "large"
+					"slug": "50"
 				},
 				{
 					"name": "2X-Large",
 					"size": "60px",
-					"slug": "2x-large"
+					"slug": "60"
 				},
 				{
 					"name": "3X-Large",
 					"size": "80px",
-					"slug": "3xlarge"
+					"slug": "70"
 				},
 				{
 					"name": "4X-Large",
 					"size": "120px",
-					"slug": "4x-large"
+					"slug": "80"
 				},
 				{
 					"name": "5X-Large",
 					"size": "145px",
-					"slug": "5xlarge"
+					"slug": "90"
 				},
 				{
 					"name": "6X-Large",
 					"size": "200px",
-					"slug": "6x-large"
+					"slug": "100"
 				}
 			],
 			"units": [
@@ -147,33 +158,40 @@
 				{
 					"fontFace": [
 						{
-							"fontFamily": "Inter",
+							"fontFamily": "\"Roboto Mono\"",
 							"fontStyle": "normal",
-							"fontWeight": "400",
+							"fontWeight": "500",
 							"src": [
-								"file:./assets/fonts/inter/inter-400-normal.woff2"
-							]
-						},
-						{
-							"fontFamily": "Inter",
-							"fontStyle": "normal",
-							"fontWeight": "600",
-							"src": [
-								"file:./assets/fonts/inter/inter-600-normal.woff2"
-							]
-						},
-						{
-							"fontFamily": "Inter",
-							"fontStyle": "italic",
-							"fontWeight": "400",
-							"src": [
-								"file:./assets/fonts/inter/inter-400-italic.woff2"
+								"file:./assets/fonts/roboto-mono/roboto-mono-500-normal.woff2"
 							]
 						}
 					],
-					"fontFamily": "Inter, sans-serif",
-					"name": "Inter",
-					"slug": "inter"
+					"fontFamily": "\"Roboto Mono\", monospace",
+					"name": "Roboto Mono",
+					"slug": "roboto-mono"
+				},
+				{
+					"fontFace": [
+						{
+							"fontFamily": "Roboto",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/roboto/roboto-400-normal.woff2"
+							]
+						},
+						{
+							"fontFamily": "Roboto",
+							"fontStyle": "normal",
+							"fontWeight": "900",
+							"src": [
+								"file:./assets/fonts/roboto/roboto-900-normal.woff2"
+							]
+						}
+					],
+					"fontFamily": "Roboto, sans-serif",
+					"name": "Roboto",
+					"slug": "roboto"
 				}
 			],
 			"fontSizes": [
@@ -264,36 +282,79 @@
 		"useRootPaddingAwareAlignments": true
 	},
 	"styles": {
+		"background": {
+			"backgroundImage": "none",
+			"backgroundPosition": "50% 0",
+			"backgroundSize": "auto"
+		},
+		"blocks": {
+			"core/button": {
+				"variations": {
+					"outline": {
+						"border": {
+							"color": "var(--wp--preset--color--light-shade-transparent)",
+							"style": "solid",
+							"width": "1px"
+						},
+						"color": {
+							"gradient": "transparent none",
+							"text": "currentColor"
+						}
+					}
+				}
+			},
+			"core/navigation": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--70)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--roboto-mono)",
+					"letterSpacing": "1px",
+					"textTransform": "uppercase"
+				}
+			},
+			"core/site-tagline": {
+				"color": {
+					"text": "var(--wp--preset--color--light-shade-2)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--roboto-mono)",
+					"fontSize": "var(--wp--preset--font-size--small)",
+					"textTransform": "uppercase"
+				}
+			},
+			"core/site-title": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--roboto-mono)",
+					"fontSize": "var(--wp--preset--font-size--regular)"
+				}
+			}
+		},
+		"color": {
+			"background": "var(--wp--preset--color--base)",
+			"text": "var(--wp--preset--color--white)"
+		},
 		"elements": {
 			"h1": {
 				"typography": {
-					"fontSize": "var:preset|font-family|thunder",
+					"fontSize": "var(--wp--preset--font-family--thunder)",
 					"letterSpacing": "0px"
 				}
 			},
 			"heading": {
 				"typography": {
-					"fontFamily": "var:preset|font-family|inter",
+					"fontFamily": "var(--wp--preset--font-family--roboto)",
 					"letterSpacing": "1px"
 				}
-			}
-		},
-		"blocks": {
-			"core/site-title": {
-				"typography": {
-					"fontFamily": "var:preset|font-family|inter",
-					"fontSize": "var:preset|font-size|regular"
-				}
 			},
-			"core/site-tagline": {
-				"typography": {
-					"fontSize": "var:preset|font-size|small",
-					"textTransform": "uppercase"
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--white)"
 				}
 			}
 		},
 		"typography": {
-			"fontFamily": "var:preset|font-family|inter"
+			"fontFamily": "var(--wp--preset--font-family--roboto)"
 		}
 	},
 	"templateParts": [

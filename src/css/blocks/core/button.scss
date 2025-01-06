@@ -1,0 +1,18 @@
+.wp-block-button.has-decor {
+  .wp-element-button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    &:before {
+      content: '';
+      color: #01FF29;
+      background-color: currentColor;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: block;
+      animation: ping 1.5s ease-out infinite;
+    }
+  }
+}

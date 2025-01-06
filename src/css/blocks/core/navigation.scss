@@ -1,0 +1,30 @@
+.wp-block-navigation {
+  .wp-block-navigation-item__content {
+    transition: opacity 300ms ease-in-out;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    opacity: 0.5;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+    }
+  }
+
+  .current-menu-item .wp-block-navigation-item__content {
+    opacity: 1;
+
+    &:before {
+      background-color: currentColor;
+    }
+  }
+
+  .wp-block-navigation-item:hover > .wp-block-navigation-item__content {
+    opacity: 1;
+  }
+}
