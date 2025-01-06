@@ -11,7 +11,7 @@ const { sync: glob } = require("fast-glob");
 
 function getStylesEntryPoints() {
   // Checks whether any block metadata files can be detected in the defined source directory.
-  const stylePaths = glob("css/**/*.scss", {
+  const stylePaths = glob("css/**/!(_*).scss", {
     absolute: false,
     cwd: fromProjectRoot(getProjectSourcePath()),
   });

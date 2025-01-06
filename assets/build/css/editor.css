@@ -1,1 +1,1 @@
-body{background-color:red!important}
+@keyframes ping{0%{outline:0 solid currentColor}50%{outline:10px solid var(--wp--preset--color--base)}to{outline:0 solid var(--wp--preset--color--base)}}

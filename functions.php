@@ -51,3 +51,18 @@ function enqueue_custom_block_styles(): void {
 	}
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\enqueue_custom_block_styles' );
+
+/**
+ * Set up additional theme supports.
+ *
+ * @return void
+ */
+function theme_setup(): void {
+	add_theme_support( 'editor-styles' );
+
+	add_editor_style( STYLES_DIR . '/editor.css' );
+
+	// Remove core block patterns.
+	remove_theme_support( 'core-block-patterns' );
+}
+add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_setup' );
