@@ -5,15 +5,6 @@
     gap: 5px;
     align-items: center;
     opacity: 0.5;
-
-    &:before {
-      content: '';
-      display: block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      border: 1px solid currentColor;
-    }
   }
 
   .current-menu-item .wp-block-navigation-item__content {
@@ -26,5 +17,18 @@
 
   .wp-block-navigation-item:hover > .wp-block-navigation-item__content {
     opacity: 1;
+  }
+}
+
+.wp-block-navigation.has-circles {
+  .wp-block-navigation-item__content {
+    &:before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+    }
   }
 }

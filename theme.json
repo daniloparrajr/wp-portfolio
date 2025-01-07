@@ -134,6 +134,7 @@
 		"typography": {
 			"defaultFontSizes": false,
 			"dropCap": false,
+			"fluid": true,
 			"fontFamilies": [
 				{
 					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
@@ -158,21 +159,6 @@
 				{
 					"fontFace": [
 						{
-							"fontFamily": "\"Roboto Mono\"",
-							"fontStyle": "normal",
-							"fontWeight": "500",
-							"src": [
-								"file:./assets/fonts/roboto-mono/roboto-mono-500-normal.woff2"
-							]
-						}
-					],
-					"fontFamily": "\"Roboto Mono\", monospace",
-					"name": "Roboto Mono",
-					"slug": "roboto-mono"
-				},
-				{
-					"fontFace": [
-						{
 							"fontFamily": "Roboto",
 							"fontStyle": "normal",
 							"fontWeight": "400",
@@ -192,16 +178,39 @@
 					"fontFamily": "Roboto, sans-serif",
 					"name": "Roboto",
 					"slug": "roboto"
+				},
+				{
+					"fontFace": [
+						{
+							"fontFamily": "\"Roboto Mono\"",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"file:./assets/fonts/roboto-mono/roboto-mono-400-normal.woff2"
+							]
+						},
+						{
+							"fontFamily": "\"Roboto Mono\"",
+							"fontStyle": "normal",
+							"fontWeight": "500",
+							"src": [
+								"file:./assets/fonts/roboto-mono/roboto-mono-500-normal.woff2"
+							]
+						}
+					],
+					"fontFamily": "\"Roboto Mono\", monospace",
+					"name": "Roboto Mono",
+					"slug": "roboto-mono"
 				}
 			],
 			"fontSizes": [
 				{
 					"fluid": {
-						"max": "90px",
-						"min": "205px"
+						"max": "205px",
+						"min": "90px"
 					},
 					"name": "Display Heading",
-					"size": "205px",
+					"size": "90px",
 					"slug": "display-heading"
 				},
 				{
@@ -313,6 +322,11 @@
 					"textTransform": "uppercase"
 				}
 			},
+			"core/post-template": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--roboto)"
+				}
+			},
 			"core/site-tagline": {
 				"color": {
 					"text": "var(--wp--preset--color--light-shade-2)"
@@ -354,17 +368,19 @@
 			}
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--roboto)"
+			"fontFamily": "var(--wp--preset--font-family--roboto-mono)"
 		}
 	},
 	"templateParts": [
 		{
 			"area": "header",
-			"name": "header"
+			"name": "header",
+			"title": "Header"
 		},
 		{
 			"area": "footer",
-			"name": "footer"
+			"name": "footer",
+			"title": "Footer"
 		}
 	],
 	"version": 3,
