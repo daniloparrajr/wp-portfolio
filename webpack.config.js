@@ -18,6 +18,18 @@ module.exports = {
       'js/core-button':  path.resolve( process.cwd(), 'src/js',   'core-button.js'   ),
       ...getStylesEntryPoints()
     },
+    module: {
+      rules: [
+        ...defaultConfig.module.rules,
+        {
+          test: /\.(png|jp(e*)g|gif)$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'images/[name][ext]'
+          }
+        },
+      ]
+    },
     plugins: [
       // Include WP's plugin config.
       ...defaultConfig.plugins.filter(

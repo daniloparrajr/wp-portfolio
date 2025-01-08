@@ -9,3 +9,15 @@
   line-height: 0.80em;
   padding-top: 0.05em;
 }
+
+.wp-site-blocks:after {
+  content: '';
+  pointer-events: none;
+  opacity: .03;
+  background-image: url("../images/grain.gif");
+  background-position: 0 0;
+  background-size: auto;
+  position: fixed;
+  inset: 0;
+}
+
