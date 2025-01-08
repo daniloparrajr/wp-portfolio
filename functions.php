@@ -5,6 +5,7 @@ namespace Portfolio;
 const ASSETS_DIR  = '/assets';
 const BUILD_DIR  = ASSETS_DIR . '/build';
 const STYLES_DIR  = BUILD_DIR . '/css';
+const SCRIPTS_DIR  = BUILD_DIR . '/js';
 
 /**
  * Enqueues style.css on the front.
@@ -66,3 +67,30 @@ function theme_setup(): void {
 	remove_theme_support( 'core-block-patterns' );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_setup' );
+
+function enqueue_block_editor_modifications(): void {
+	$asset = include get_theme_file_path( SCRIPTS_DIR . "/core-button.asset.php" );
+
+	wp_enqueue_script(
+		'portfolio-block-editor',
+		get_parent_theme_file_uri( SCRIPTS_DIR . '/core-button.js' ),
+		$asset['dependencies'],
+		$asset['version'],
+	);
+}
+add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_block_editor_modifications' );
+
+function filter_button_block_render( $block_content, $block ) {
+	if ( isset( $block['attrs']['isCircular'] ) ) {
+		$tags = new \WP_HTML_Tag_Processor( $block_content );
+
+		if ( $tags->next_tag( array( 'class_name' => 'wp-block-button' ) ) ) {
+			$tags->add_class( 'is-circular' );
+		}
+
+		$block_content = $tags->get_updated_html();
+	}
+
+	return $block_content;
+}
+add_filter( 'render_block_core/button', __NAMESPACE__ . '\filter_button_block_render', 10, 2 );

@@ -61,9 +61,10 @@
 		},
 		"layout": {
 			"contentSize": "1105px",
-			"wideSize": "1680px"
+			"wideSize": "1440px"
 		},
 		"spacing": {
+			"customSpacingSize": true,
 			"defaultSpacingSizes": false,
 			"spacingSizes": [
 				{
@@ -204,6 +205,15 @@
 				}
 			],
 			"fontSizes": [
+				{
+					"fluid": {
+						"max": "275px",
+						"min": "100px"
+					},
+					"name": "Display Heading Large",
+					"size": "100px",
+					"slug": "display-heading-large"
+				},
 				{
 					"fluid": {
 						"max": "205px",
