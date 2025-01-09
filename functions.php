@@ -69,13 +69,24 @@ function theme_setup(): void {
 add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_setup' );
 
 function enqueue_block_editor_modifications(): void {
-	$asset = include get_theme_file_path( SCRIPTS_DIR . "/core-button.asset.php" );
+	// TODO: make this into a loop.
+
+	$button_asset = include get_theme_file_path( SCRIPTS_DIR . "/core-button.asset.php" );
 
 	wp_enqueue_script(
-		'portfolio-block-editor',
+		'portfolio-block-editor-core-button',
 		get_parent_theme_file_uri( SCRIPTS_DIR . '/core-button.js' ),
-		$asset['dependencies'],
-		$asset['version'],
+		$button_asset['dependencies'],
+		$button_asset['version'],
+	);
+
+	$post_template_asset = include get_theme_file_path( SCRIPTS_DIR . "/core-post-template.asset.php" );
+
+	wp_enqueue_script(
+		'portfolio-block-editor-post-template',
+		get_parent_theme_file_uri( SCRIPTS_DIR . '/core-post-template.js' ),
+		$post_template_asset['dependencies'],
+		$post_template_asset['version'],
 	);
 }
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_block_editor_modifications' );

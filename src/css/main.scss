@@ -1,14 +1,5 @@
 @forward "animations";
-
-.has-display-heading-font-size,
-.has-display-heading-large-font-size {
-  text-wrap: balance;
-}
-
-.has-thunder-font-family {
-  line-height: 0.80em;
-  padding-top: 0.05em;
-}
+@forward "typography";
 
 .wp-site-blocks:after {
   content: '';

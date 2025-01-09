@@ -16,6 +16,7 @@ module.exports = {
     entry: {
       'js/editor':  path.resolve( process.cwd(), 'src/js',   'editor.js'   ),
       'js/core-button':  path.resolve( process.cwd(), 'src/js',   'core-button.js'   ),
+      'js/core-post-template':  path.resolve( process.cwd(), 'src/js',   'core-post-template.js'   ),
       ...getStylesEntryPoints()
     },
     module: {
