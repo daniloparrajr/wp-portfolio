@@ -22,7 +22,7 @@ addFilter(
       ...settings,
       attributes: {
         ...settings.attributes,
-        areColumnsAlternating: {
+        isAlternatingColumns: {
           type: "boolean",
           default: false,
         }
@@ -37,10 +37,10 @@ function Edit(props) {
         <PanelRow>
           <ToggleControl
             __nextHasNoMarginBottom
-            checked={props.attributes.areColumnsAlternating}
-            label={__("Columns alternating", "portfolio")}
-            help={__("Make columns alternating.")}
-            onChange={() => props.setAttributes({ areColumnsAlternating: !props.attributes.areColumnsAlternating })}
+            checked={props.attributes.isAlternatingColumns}
+            label={__("Child Columns are alternating", "portfolio")}
+            help={__("Columns will be alternating on desktop.")}
+            onChange={() => props.setAttributes({ isAlternatingColumns: !props.attributes.isAlternatingColumns })}
           />
         </PanelRow>
       </PanelBody>
@@ -64,6 +64,7 @@ addFilter(
       });
 
       if ( ! hasColumnsBlock ) {
+        props.setAttributes({ isAlternatingColumns: false });
         return <BlockEdit {...props} />;
       }
 
@@ -75,4 +76,29 @@ addFilter(
       );
     }
   })
+);
+
+addFilter(
+  'editor.BlockListBlock',
+  'portfolio/apply-post-template-settings-wrapper',
+  (BlockListBlock) => (props) => {
+    if (props.name !== 'core/post-template') {
+      return <BlockListBlock {...props} />;
+    }
+
+    const { isAlternatingColumns } = props.attributes;
+
+    let newClassNames = `${props.className || ''}`.trim();
+
+    if (isAlternatingColumns) {
+      newClassNames += ' is-alternating-columns';
+    }
+
+    const newProps = {
+      ...props,
+      className: newClassNames,
+    };
+
+    return <BlockListBlock {...newProps} />;
+  }
 );

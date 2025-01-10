@@ -1,0 +1,5 @@
+.wp-block-post-template.is-alternating-columns {
+  > .wp-block-post:nth-child(even of :not([style*="display: none"])) > .wp-block-columns > .wp-block-column:first-child {
+    order: 1;
+  }
+}

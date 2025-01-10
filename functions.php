@@ -105,3 +105,18 @@ function filter_button_block_render( $block_content, $block ) {
 	return $block_content;
 }
 add_filter( 'render_block_core/button', __NAMESPACE__ . '\filter_button_block_render', 10, 2 );
+
+function filter_post_template_block_render( $block_content, $block ) {
+	if ( isset( $block['attrs']['isAlternatingColumns'] ) ) {
+		$tags = new \WP_HTML_Tag_Processor( $block_content );
+
+		if ( $tags->next_tag( array( 'class_name' => 'wp-block-post-template' ) ) ) {
+			$tags->add_class( 'is-alternating-columns' );
+		}
+
+		$block_content = $tags->get_updated_html();
+	}
+
+	return $block_content;
+}
+add_filter( 'render_block_core/post-template', __NAMESPACE__ . '\filter_post_template_block_render', 10, 2 );
