@@ -27,37 +27,6 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_styles' );
  *
  * @return void
  */
-function enqueue_custom_block_styles(): void {
-	// Scan our styles folder to locate block styles.
-	$files = glob( get_template_directory() . STYLES_DIR . '/blocks/core/*.css' );
-
-	foreach ( $files as $file ) {
-
-		// Get the filename and core block name.
-		$filename   = basename( $file, '.css' );
-		$block_name = "core/$filename";
-
-		$asset = include get_theme_file_path( STYLES_DIR . "/blocks/core/{$filename}.asset.php" );
-
-		wp_enqueue_block_style(
-			$block_name,
-			array(
-				'handle' => "portfolio-{$filename}-block-style",
-				'src'    => get_theme_file_uri( STYLES_DIR . "/blocks/core/{$filename}.css" ),
-				'path'   => get_theme_file_path( STYLES_DIR . "/blocks/core/{$filename}.css" ),
-				'deps'   => $asset['dependencies'],
-				'ver'    => $asset['version'],
-			)
-		);
-	}
-}
-add_action( 'after_setup_theme', __NAMESPACE__ . '\enqueue_custom_block_styles' );
-
-/**
- * Set up additional theme supports.
- *
- * @return void
- */
 function theme_setup(): void {
 	add_theme_support( 'editor-styles' );
 
@@ -65,29 +34,52 @@ function theme_setup(): void {
 
 	// Remove core block patterns.
 	remove_theme_support( 'core-block-patterns' );
+
+	// Scan our styles folder to locate block styles.
+	$files = glob( get_template_directory() . STYLES_DIR . '/blocks/*.css' );
+
+	foreach ( $files as $file ) {
+
+		// Get the filename and core block name.
+		$filename   = basename( $file, '.css' );
+		$block_name = "core/$filename";
+
+		$asset = include get_theme_file_path( STYLES_DIR . "/blocks/{$filename}.asset.php" );
+
+		wp_enqueue_block_style(
+			$block_name,
+			array(
+				'handle' => "portfolio-{$filename}-block-style",
+				'src'    => get_theme_file_uri( STYLES_DIR . "/blocks/{$filename}.css" ),
+				'path'   => get_theme_file_path( STYLES_DIR . "/blocks/{$filename}.css" ),
+				'deps'   => $asset['dependencies'],
+				'ver'    => $asset['version'],
+			)
+		);
+	}
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\theme_setup' );
 
 function enqueue_block_editor_modifications(): void {
-	// TODO: make this into a loop.
+	// Scan our styles folder to locate block styles.
+	$files = glob( get_template_directory() . SCRIPTS_DIR . '/editor/*.js' );
 
-	$button_asset = include get_theme_file_path( SCRIPTS_DIR . "/core-button.asset.php" );
+	foreach ( $files as $file ) {
 
-	wp_enqueue_script(
-		'portfolio-block-editor-core-button',
-		get_parent_theme_file_uri( SCRIPTS_DIR . '/core-button.js' ),
-		$button_asset['dependencies'],
-		$button_asset['version'],
-	);
+		// Get the filename and core block name.
+		$filename   = basename( $file, '.js' );
+		$block_name = "core/$filename";
 
-	$post_template_asset = include get_theme_file_path( SCRIPTS_DIR . "/core-post-template.asset.php" );
+		$asset = include get_theme_file_path( SCRIPTS_DIR . "/editor/{$filename}.asset.php" );
 
-	wp_enqueue_script(
-		'portfolio-block-editor-post-template',
-		get_parent_theme_file_uri( SCRIPTS_DIR . '/core-post-template.js' ),
-		$post_template_asset['dependencies'],
-		$post_template_asset['version'],
-	);
+		wp_enqueue_script(
+			"portfolio-{$block_name}-block-modifications",
+			get_parent_theme_file_uri( SCRIPTS_DIR . "/editor/{$filename}.js" ),
+			$asset['dependencies'],
+			$asset['version'],
+		);
+
+	}
 }
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\enqueue_block_editor_modifications' );
 

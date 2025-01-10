@@ -1,22 +1,17 @@
 // WordPress webpack config.
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
-const getStylesEntryPoints = require( './webpack-utils.js' );
+const { getStylesEntryPoints, getScriptsEntryPoints } = require( './webpack-utils.js' );
 
 // Plugins.
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
-
-// Utilities.
-const path = require( 'path' );
 
 // Add any new entry points by extending the webpack config.
 module.exports = {
   ...defaultConfig,
   ...{
     entry: {
-      'js/editor':  path.resolve( process.cwd(), 'src/js',   'editor.js'   ),
-      'js/core-button':  path.resolve( process.cwd(), 'src/js',   'core-button.js'   ),
-      'js/core-post-template':  path.resolve( process.cwd(), 'src/js',   'core-post-template.js'   ),
+      ...getScriptsEntryPoints(),
       ...getStylesEntryPoints()
     },
     module: {

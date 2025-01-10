@@ -37,4 +37,35 @@ function getStylesEntryPoints() {
   return entryPoints;
 }
 
-module.exports = getStylesEntryPoints;
+function getScriptsEntryPoints() {
+  // Checks whether any block metadata files can be detected in the defined source directory.
+  const scriptsPaths = glob("js/**/*.js", {
+    absolute: false,
+    cwd: fromProjectRoot(getProjectSourcePath()),
+  });
+
+  let entryPoints = {};
+
+  if (scriptsPaths.length > 0) {
+    for (const scriptsPath of scriptsPaths) {
+      let fileName = path.basename(scriptsPath, path.extname(scriptsPath));
+
+      entryPoints = {
+        ...entryPoints,
+        ...{
+          [path.join(path.dirname(scriptsPath), fileName)]: path.resolve(
+            fromProjectRoot(getProjectSourcePath()),
+            scriptsPath,
+          ),
+        },
+      };
+    }
+  }
+
+  return entryPoints;
+}
+
+module.exports = {
+  getStylesEntryPoints,
+  getScriptsEntryPoints
+};
