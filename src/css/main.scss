@@ -1,5 +1,6 @@
 @forward "animations";
 @forward "typography";
+@forward "layout/header";
 
 .wp-site-blocks:after {
   content: '';
@@ -12,3 +13,23 @@
   inset: 0;
 }
 
+.icon {
+  color: currentColor;
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
+.hero {
+  height: 100vh;
+  height: 100dvh;
+  position: relative;
+  display: grid;
+  align-items: center;
+
+  > .wp-block-columns {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}

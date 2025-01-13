@@ -5,9 +5,14 @@
     "build": "wp-scripts build --webpack-src-dir=src --output-path=assets/build"
   },
   "devDependencies": {
+    "@wordpress/dependency-extraction-webpack-plugin": "^6.15.0",
     "@wordpress/scripts": "^30.8.1",
     "fast-glob": "^3.3.3",
     "path": "^0.12.7",
     "webpack-remove-empty-scripts": "^1.0.4"
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
+    "gsap": "^3.12.5"
   }
 }

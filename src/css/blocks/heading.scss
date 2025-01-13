@@ -1,0 +1,24 @@
+.wp-block-heading.is-interactive {
+  padding-top: 0;
+
+  .wp-block-heading__wrapper {
+    display: block;
+    width: calc(100vw - 20px);
+    margin-left: calc(-50vw + 50% + 10px);
+    overflow: hidden;
+  }
+
+  .wp-block-heading__rail {
+    text-wrap: nowrap;
+    display: flex;
+    gap: 0.2em;
+    align-items: center;
+    transform: translateX(-50%);
+  }
+
+  .wp-block-heading__asterisk {
+    font-size: 0.2em;
+    margin-top: -0.8em;
+  }
+
+}
